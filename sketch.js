@@ -587,7 +587,7 @@ function windowResized() {
 function set_divisions(displayScale){
   if (!displayScale) {
     displayScale = (windowWidth >= windowHeight) ? windowHeight/base_width : windowWidth/base_width
-    displayScale *= 0.98
+    displayScale *= 0.49
   }
 
   w = Math.round((svg_w)*displayScale)

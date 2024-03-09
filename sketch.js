@@ -257,7 +257,7 @@ function draw_regular(){
   regular_canvas.rectMode(CORNER);
   regular_canvas.stroke(pen_colour);
   regular_canvas.noFill();
-  regular_canvas.strokeWeight(w/svg_w)
+  regular_canvas.strokeWeight(1.5*w/svg_w)
 
   draw_squares(regular_canvas); 
 }
@@ -587,7 +587,7 @@ function windowResized() {
 function set_divisions(displayScale){
   if (!displayScale) {
     displayScale = (windowWidth >= windowHeight) ? windowHeight/base_width : windowWidth/base_width
-    displayScale *= 0.95
+    displayScale *= 0.99
   }
 
   w = Math.round((svg_w)*displayScale)

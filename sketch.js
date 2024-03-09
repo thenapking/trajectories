@@ -594,7 +594,7 @@ function set_divisions(displayScale){
   h = Math.round((svg_h)*displayScale)
 
   d = w/n;
-  border_width = w/2;
+  border_width = w/12;
   border_offset = d/2 + border_width
   al = w/60 // dashed line width
   svg_d = svg_w / n

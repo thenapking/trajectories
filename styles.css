@@ -1,0 +1,19 @@
+html {
+	background: white;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	padding: 0px;
+}
+
+
+canvas#defaultCanvas0 {
+  height: 100% !important;
+  width: auto !important;
+  display: block;
+}

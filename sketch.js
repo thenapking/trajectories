@@ -107,7 +107,6 @@ let border_width, border_offset;
 const bw = 10
 
 let max_depth = 2;
-let min_width = 25;  // not properly working
 
 $fx.params([
   {

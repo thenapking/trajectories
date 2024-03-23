@@ -17,6 +17,12 @@ let palette = {
     "pen_colour": "#FFFFFF",
     "paper_roughness": 0.75
   },
+  "Cerulean": {
+    "bg_colour": "#078FE4",
+    "paper_colour": "#FFFFFF",
+    "pen_colour": "#FFFFFF",
+    "paper_roughness": 0.2
+  },
   "Racing Green": {
     "bg_colour": "#004225",
     "paper_colour": "#FFFFFF",
@@ -41,8 +47,14 @@ let palette = {
     "pen_colour": "#FFFFFF",
     "paper_roughness": 0.15
   },
+  "Rock": {
+    "bg_colour": "#9CBBCE",
+    "paper_colour": "#FFFFFF",
+    "pen_colour": "#FFFFFF",
+    "paper_roughness": 0.2
+  },
   "Havelock": {
-    "bg_colour": "#4AA2D9",
+    "bg_colour": "#51ADE6",
     "paper_colour": "#FFFFFF",
     "pen_colour": "#FFFFFF",
     "paper_roughness": 0.15
@@ -53,8 +65,14 @@ let palette = {
     "pen_colour": "#245590",
     "paper_roughness": 0.2
   },
+  "Cornflower": {
+    "bg_colour": "#8EC8EC",
+    "paper_colour": "#FFFFFF",
+    "pen_colour": "#FFFFFF",
+    "paper_roughness": 0.2
+  },
   "Folio": {
-    "bg_colour": "#245590",
+    "bg_colour": "#447C9C",
     "paper_colour": "#FFFFFF",
     "pen_colour": "#E0943C",
     "paper_roughness": 0.3
@@ -71,7 +89,6 @@ let palette = {
     "pen_colour": "#003049",
     "paper_roughness": 0.3
   },
-  
   "Ochre": {
     "bg_colour": "#EFDBD2",
     "paper_colour": "#111111",
@@ -102,6 +119,7 @@ let displayScale;
 let n_arr = [8, 12, 16, 24, 32, 40, 60, 80, 90, 100, 120];
 let fill_styles = [5];
 let fx_features, fx_params;
+const isMob = /Android|webOS|iPhone|iPad|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
 let border_width, border_offset;
 const bw = 10
@@ -121,11 +139,11 @@ $fx.params([
     id: "paper",
     name: "Paper texture",
     type: "number",
-    default: 3,
+    default: 1.5,
     options: {
-      min: 1,
-      max: 5,
-      step: 1,
+      min: 0,
+      max: 3,
+      step: 0.5,
     },
   },
   {
@@ -226,6 +244,7 @@ function feature_percentage(feature_name){
 }
 
 function setup() {
+  (isMob) ? pixelDensity(1): pixelDensity(min(window.devicePixelRatio), 2);
   fx_params = $fx.getParams();
   n = random_element(n_arr)
   
@@ -521,10 +540,10 @@ function paper_texture(colour) {
   const segment_w = width / segments;
   const grain_density = random_between(1.2,1.6);
   const angle = random_between(-0.05,  0.05)
-  const paper_strength = 1 + fx_params["paper"] 
+  const paper_strength = 0.5 + fx_params["paper"]
   
 
-  regular_canvas.strokeWeight(0.7); 
+  regular_canvas.strokeWeight(w/1000); 
   regular_canvas.stroke(red(colour), blue(colour), green(colour), paper_strength);
   regular_canvas.blendMode(ADD)
   regular_canvas.noFill();
